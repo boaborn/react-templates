@@ -26,7 +26,7 @@
     "no-var": "off",
     "indent": ["error", 2, { "SwitchCase":1 }],
     "space-infix-ops": ["error", {"int32Hint": false}],
-    "arrow-spacing": ["error", {"before": true}],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
     "no-multiple-empty-lines": ["error", {"max": 1}],
     "comma-spacing": ["error", { "before": false, "after": true }],
     "comma-dangle": ["error", "never"],
@@ -35,6 +35,7 @@
     "linebreak-style": ["off"],
     "require-jsdoc":["off"],
     "no-invalid-this":"off",
-    "no-whitespace-before-property":["error"]
+    "no-whitespace-before-property":["error"],
+    "jsx-quotes":["error", "prefer-double"]
   }
 }
