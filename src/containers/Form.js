@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
 
-export default class Form extends Component {
-  render() {
-    return (
-      <div>
-        Form
-      </div>
-    )
-  }
+const Form = () => {
+  return (
+    <div>
+      Home Page
+    </div>
+  )
 }
+
+export default Home
