@@ -1,14 +1,25 @@
 import React from 'react'
 
-const styles = {
-
-}
+import {
+  Router,
+  Link
+} from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div>
-      header
-    </div>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/signin">Sign In</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      </ul>
+    </nav>
   )
 }
 

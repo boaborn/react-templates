@@ -3,9 +3,14 @@ import {
   SIGN_OUT
 } from '../actions/types'
 
+import { TOKEN } from '../utils/constants'
+
+import { getValueByKeyFromLocalStorage } from '../utils'
+
 const INTIAL_STATE = {
   isSignedIn: null,
-  userId: null
+  userId: null,
+  token: getValueByKeyFromLocalStorage(TOKEN)
 }
 
 export default (state = INTIAL_STATE, action) => {

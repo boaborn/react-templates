@@ -36,6 +36,12 @@
     "no-invalid-this":"off",
     "no-whitespace-before-property":["error"],
     "jsx-quotes":["error", "prefer-double"],
-    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }]
+    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
+    "space-in-parens": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "always",
+      "asyncArrow": "always"
+    }]
   }
 }
