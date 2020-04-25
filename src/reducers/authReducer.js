@@ -8,8 +8,11 @@ import { TOKEN } from '../utils/constants'
 import { getValueByKeyFromLocalStorage } from '../utils'
 
 const INTIAL_STATE = {
+  // remove these later
   isSignedIn: null,
   userId: null,
+  // end
+  isAuthenticated: true,
   token: getValueByKeyFromLocalStorage(TOKEN)
 }
 

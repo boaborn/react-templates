@@ -9,6 +9,8 @@ import SignIn from '../containers/SignIn'
 import Dashboard from '../containers/Dashboard'
 import NotFound from '../containers/NotFound'
 
+import PrivateRoute from '../components/PrivateRoute'
+
 const App = () => {
   const signIn = () => {
     console.log('Sign In')
@@ -37,10 +39,11 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={ Home }/>
           <Route path="/signin" exact component={ SignIn }/>
-          <Route path="/dashboard" exact component={ Dashboard }/>
+          <PrivateRoute path="/dashboard" exact component={ Dashboard }/>
           <Route path="*" exact component={ NotFound }/>
         </Switch>
       </Router>
+
     </div>
   )
 }
