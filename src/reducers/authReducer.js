@@ -12,7 +12,7 @@ const INTIAL_STATE = {
   isSignedIn: null,
   userId: null,
   // end
-  isAuthenticated: true,
+  isAuthenticated: Boolean(getValueByKeyFromLocalStorage(TOKEN)),
   token: getValueByKeyFromLocalStorage(TOKEN)
 }
 

@@ -6,3 +6,4 @@
 export function getValueByKeyFromLocalStorage(key) {
   return localStorage.getItem(key)
 }
+
