@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
   Link
+  // useLocation
 } from 'react-router-dom'
 
 const Header = () => {
+
+  // Dynamic detect current pathname.
+  // Use this template to customize/disable header for some routes
+
+  // const location = useLocation()
+  // if (location.pathname === '/dashboard') {
+  //   return null
+  // }
+
   return (
     <nav>
       <ul>

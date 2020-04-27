@@ -11,7 +11,7 @@ import NotFound from '../containers/NotFound'
 
 import PrivateRoute from '../components/PrivateRoute'
 
-const App = () => {
+const App = props => {
   const signIn = () => {
     console.log('Sign In')
     localStorage.setItem('token', 'abcdefg')
@@ -27,7 +27,7 @@ const App = () => {
     localStorage.clear()
     localStorage.setItem('token', 'qwer')
   }
-
+  console.log('props >', props)
   return (
     <div>
       <button onClick={ signIn }>Sign In</button>
