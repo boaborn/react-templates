@@ -12,14 +12,17 @@ import reducers from './reducers'
 // Hook Chrome Redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-// Add redux saga as middileware
+// Create a redux saga as middileware
 const sagaMiddleware = createSagaMiddleware()
-sagaMiddleware.run(rootSaga)
 
+// Create a redux store and mount saga middleware
 const store = createStore(
   reducers,
   composeEnhancers(applyMiddleware(sagaMiddleware))
 )
+
+// run saga middleware after its being mounted
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <Provider store={ store }>
