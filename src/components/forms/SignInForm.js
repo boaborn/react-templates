@@ -18,7 +18,7 @@ const SignInForm = ({ onSubmit }) => {
     >
       { props => (
         <Form>
-          <Field type="text" name="username"/>
+          <Field type="email" name="username"/>
           <Field type="password" name="password"/>
           <button type="submit" disabled={ props.isSubmitting }>
             Submit

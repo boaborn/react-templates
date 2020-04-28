@@ -1,4 +1,7 @@
-import { SIGN_IN_REQUEST } from './types'
+import {
+  SIGN_IN_REQUEST,
+  SIGN_IN_SUCCESS
+} from './types'
 
 export const signInRequest = ({ username, password }, formHelpers) => {
   console.log('signInRequest')
@@ -9,5 +12,12 @@ export const signInRequest = ({ username, password }, formHelpers) => {
       password,
       formHelpers
     }
+  }
+}
+
+export const signInSuccess = data => {
+  return {
+    type: SIGN_IN_SUCCESS,
+    payload: data
   }
 }

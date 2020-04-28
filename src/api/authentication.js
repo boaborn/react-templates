@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { baseURL } from 'config'
+import config from './config'
 
 const axiosInstance = axios.create({
-  baseURL
+  baseURL: config.baseURL
 })
 
 export const signIn = ({ username, password }) => {
