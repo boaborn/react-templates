@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import history from '../history'
 import Header from '../components/Header'
@@ -34,7 +34,7 @@ const App = props => {
       <button onClick={ signOut }>Sign Out</button>
       <button onClick={ refreshToken }>Refresh Token</button>
 
-      <Router history={ history }>
+      <BrowserRouter>
         <Header/>
         <Switch>
           <Route path="/" exact component={ Home }/>
@@ -42,7 +42,7 @@ const App = props => {
           <PrivateRoute path="/dashboard" exact component={ Dashboard }/>
           <Route path="*" exact component={ NotFound }/>
         </Switch>
-      </Router>
+      </BrowserRouter>
 
     </div>
   )
