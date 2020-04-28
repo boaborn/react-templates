@@ -1,6 +1,6 @@
 import {
-  SIGN_IN,
-  SIGN_OUT
+  SIGN_IN_SUCCESS,
+  SIGN_OUT_SUCCESS
 } from '../actions/types'
 
 import { TOKEN } from '../utils/constants'
@@ -18,9 +18,9 @@ const INTIAL_STATE = {
 
 export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
-    case SIGN_IN:
+    case SIGN_IN_SUCCESS:
       return { ...state, isSignedIn: true, userId: action.payload }
-    case SIGN_OUT:
+    case SIGN_OUT_SUCCESS:
       return { ...state, isSignedIn: false, userId: null }
     default:
       return state
