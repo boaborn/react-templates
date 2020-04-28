@@ -1,11 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import SignInForm from '../components/forms/SignInForm'
+import { signInRequest } from '../actions/authentication'
 
 const SignIn = () => {
-  const handleFormSubmit = (values, formikHelpers) => {
+  const dispatch = useDispatch()
+
+  const handleFormSubmit = ({ username, password }, formikHelpers) => {
     console.log('Submiting values')
 
-    formikHelpers.setSubmitting(false)
+    dispatch(signInRequest({ username, password }, formikHelpers))
+    // formikHelpers.setSubmitting(false)
   }
 
   return (

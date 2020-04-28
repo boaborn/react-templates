@@ -9,18 +9,16 @@ const SignupSchema = Yup.object().shape({
 const SignInForm = ({ onSubmit }) => {
   return (
     <Formik
-      initialValues={ { email: '', password: '' } }
+      initialValues={ { username: '', password: '' } }
       validationSchema={ SignupSchema }
       onSubmit={ (values, formikHelpers) => {
-        console.log(formikHelpers)
         console.log(values)
         onSubmit(values, formikHelpers)
-
       } }
     >
       { props => (
         <Form>
-          <Field type="email" name="email"/>
+          <Field type="text" name="username"/>
           <Field type="password" name="password"/>
           <button type="submit" disabled={ props.isSubmitting }>
             Submit
