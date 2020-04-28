@@ -4,7 +4,7 @@ class App extends Component {
   onclickSomething = () => {
 
   }
-  render () {
+  render() {
     return (
       <div>
         Dashboard
