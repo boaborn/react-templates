@@ -2,7 +2,11 @@ import React, { useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik'
 import * as Yup from 'yup'
 import { usernameSchema, passwordSchema } from './validationSchemas'
-import { TextField } from '@material-ui/core'
+import { TextField, Button } from '@material-ui/core'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import LockIcon from '@material-ui/icons/Lock'
+
 // Form validation schema
 const SignInSchema = Yup.object().shape({
   username: usernameSchema,
@@ -68,7 +72,9 @@ const SignInForm = ({ onSubmit, className }) => {
       } }
     >
       { props => (
-        <Form className={ className || '' }>
+        <Form className={ className || '' }
+          style={ styles.formContainerStyle }
+        >
           { renderErrorMsg(props.status) }
           <Field
             name="username"
@@ -76,19 +82,43 @@ const SignInForm = ({ onSubmit, className }) => {
             variant="outlined"
             disabled={ props.isSubmitting }
             component={ renderTextField }
-            size="medium"
+            fullWidth
+            margin="normal"
+            InputProps={ {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle color="disabled"/>
+                </InputAdornment>
+              )
+            } }
           />
           <Field
             name="password"
             label="Password"
             disabled={ props.isSubmitting }
             component={ renderTextField }
-            variant="outlined"
+            fullWidth
+            margin="normal"
+            InputProps={ {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon color="disabled"/>
+                </InputAdornment>
+              )
+            } }
           />
 
-          <button type="submit" disabled={ props.isSubmitting }>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            disableElevation
+            type="submit"
+            margin="normal"
+            disabled={ props.isSubmitting }
+          >
             Submit
-          </button>
+          </Button>
         </Form>
       ) }
     </Formik>
@@ -96,4 +126,12 @@ const SignInForm = ({ onSubmit, className }) => {
 }
 
 export default SignInForm
+
+const styles = {
+  formContainerStyle: {
+    maxWidth: 500,
+    margin: '0 auto'
+  }
+
+}
 
