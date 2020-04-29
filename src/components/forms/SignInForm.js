@@ -132,6 +132,5 @@ const styles = {
     maxWidth: 500,
     margin: '0 auto'
   }
-
 }
 
