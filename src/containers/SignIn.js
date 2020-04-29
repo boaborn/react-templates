@@ -16,7 +16,12 @@ const SignIn = () => {
   return (
     <div>
       Sign In Page
-      <SignInForm onSubmit={ handleFormSubmit }/>
+      <SignInForm
+        onSubmit={ handleFormSubmit }
+      />
+      <SignInForm
+        onSubmit={ handleFormSubmit }
+      />
     </div>
   )
 }

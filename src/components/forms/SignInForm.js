@@ -1,25 +1,34 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { usernameSchema, passwordSchema } from './validationSchemas'
 
-const SignupSchema = Yup.object().shape({
-
+// Form validation schema
+const SignInSchema = Yup.object().shape({
+  username: usernameSchema,
+  password: passwordSchema
 })
 
 const SignInForm = ({ onSubmit }) => {
   return (
     <Formik
       initialValues={ { username: '', password: '' } }
-      validationSchema={ SignupSchema }
+      validationSchema={ SignInSchema }
       onSubmit={ (values, formikHelpers) => {
-        console.log(values)
+        console.log('values >', values)
         onSubmit(values, formikHelpers)
       } }
     >
       { props => (
         <Form>
-          <Field type="email" name="username"/>
-          <Field type="password" name="password"/>
+          <div>
+            <Field name="username" type="email"/>
+            <ErrorMessage name="username"/>
+          </div>
+          <div>
+            <Field name="password" type="password"/>
+            <ErrorMessage name="password"/>
+          </div>
           <button type="submit" disabled={ props.isSubmitting }>
             Submit
           </button>
