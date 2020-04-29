@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import SignInForm from '../components/forms/SignInForm'
 import { signInRequest } from '../actions/authentication'
+import Container from '@material-ui/core/Container'
 
 const SignIn = () => {
   const dispatch = useDispatch()
@@ -14,15 +15,15 @@ const SignIn = () => {
   }
 
   return (
-    <div>
-      Sign In Page
+    <Container className="sign-in-container">
+      <h2>Sign In Page</h2>
+      <div></div>
       <SignInForm
+        className="sign-in_form"
         onSubmit={ handleFormSubmit }
       />
-      <SignInForm
-        onSubmit={ handleFormSubmit }
-      />
-    </div>
+
+    </Container>
   )
 }
 
