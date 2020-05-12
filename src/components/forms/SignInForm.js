@@ -6,7 +6,7 @@ import { TextField, Button } from '@material-ui/core'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import LockIcon from '@material-ui/icons/Lock'
-
+import StyledTextField from './StyledTextField'
 // Form validation schema
 const SignInSchema = Yup.object().shape({
   username: usernameSchema,
@@ -21,8 +21,6 @@ const renderTextField = ({ field, form, ...props }) => {
       <TextField
         { ...field }
         { ...props }
-        // autoComplete="on"
-
         error={ Boolean(errorMsg) }
         helperText={ errorMsg }
       />
@@ -79,7 +77,6 @@ const SignInForm = ({ onSubmit, className }) => {
           <Field
             name="username"
             label="Username"
-            variant="outlined"
             disabled={ props.isSubmitting }
             component={ renderTextField }
             fullWidth
@@ -95,8 +92,26 @@ const SignInForm = ({ onSubmit, className }) => {
           <Field
             name="password"
             label="Password"
+
             disabled={ props.isSubmitting }
             component={ renderTextField }
+            fullWidth
+            margin="normal"
+            InputProps={ {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon color="disabled"/>
+                </InputAdornment>
+              )
+            } }
+          />
+
+          <Field
+            name="password"
+            label="Password"
+
+            disabled={ props.isSubmitting }
+            component={ StyledTextField }
             fullWidth
             margin="normal"
             InputProps={ {
@@ -114,7 +129,6 @@ const SignInForm = ({ onSubmit, className }) => {
             color="primary"
             disableElevation
             type="submit"
-            margin="normal"
             disabled={ props.isSubmitting }
           >
             Submit
