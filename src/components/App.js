@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import history from '../history'
 import Header from '../components/Header'
 
 import Home from '../containers/Home'
@@ -11,15 +10,19 @@ import NotFound from '../containers/NotFound'
 
 import PrivateRoute from '../components/PrivateRoute'
 
+import { useDispatch } from 'react-redux'
+import { signInOutSuccess } from '../actions/authentication'
+
 const App = props => {
+
+  const dispatch = useDispatch()
+
   const signIn = () => {
-    console.log('Sign In')
     localStorage.setItem('token', 'abcdefg')
   }
 
   const signOut = () => {
-    console.log('Sign out')
-    localStorage.clear()
+    dispatch(signInOutSuccess())
   }
 
   const refreshToken = () => {

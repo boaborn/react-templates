@@ -7,7 +7,8 @@ import { TOKEN } from '../utils/constants'
 
 import {
   getValueByKeyFromLocalStorage,
-  storeItemInLocalStorage
+  storeItemInLocalStorage,
+  removeItemInLocalStorage
 } from '../utils'
 
 const INTIAL_STATE = {
@@ -18,10 +19,11 @@ const INTIAL_STATE = {
 export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
     case SIGN_IN_SUCCESS:
-      storeItemInLocalStorage('token', action.payload.token)
-      return { ...state, token: action.payload.token }
+      storeItemInLocalStorage(TOKEN, action.payload.token)
+      return { ...state, isAuthenticated: true, token: action.payload.token }
     case SIGN_OUT_SUCCESS:
-      return { ...state, isSignedIn: false, userId: null }
+      removeItemInLocalStorage(TOKEN)
+      return { ...state, ...INTIAL_STATE }
     default:
       return state
   }

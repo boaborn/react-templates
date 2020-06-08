@@ -8,7 +8,6 @@ const SignIn = () => {
   const dispatch = useDispatch()
 
   const handleFormSubmit = ({ username, password }, formikHelpers) => {
-    console.log('Submiting values')
 
     dispatch(signInRequest({ username, password }, formikHelpers))
     // formikHelpers.setSubmitting(false)

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Formik, Form, Field, ErrorMessage, useField } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { usernameSchema, passwordSchema } from './validationSchemas'
-import { TextField, Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import LockIcon from '@material-ui/icons/Lock'
@@ -16,23 +16,23 @@ const SignInSchema = Yup.object().shape({
 const fields = [
   {
     name: 'username', // name of the state in formik
-    label: 'Username'
+    label: 'Username',
+    type: 'text'
   },
   {
     name: 'password',
-    Label: 'password'
+    Label: 'password',
+    type: 'password'
   }
 ]
 
 const renderErrorMsg = status => {
-  console.log('status >', status)
   if (typeof status === 'undefined'
   || typeof status.formStatus === 'undefined'
   ) {
     return null
   }
 
-  console.log('here')
   if (status.formStatus === 'success') {
     return <div>Done!</div>
   }
@@ -77,7 +77,7 @@ const SignInForm = ({ onSubmit, className }) => {
           <Field
             name="password"
             label="Password"
-
+            type="password"
             disabled={ props.isSubmitting }
             component={ StyledTextField }
             fullWidth

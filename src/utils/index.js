@@ -11,6 +11,10 @@ export function storeItemInLocalStorage(key, value) {
   localStorage.setItem(key, value)
 }
 
+export function removeItemInLocalStorage(key) {
+  localStorage.removeItem(key)
+}
+
 export function updateFormStatus(formikHelpers) {
 
 }
